@@ -1,95 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Capítulo 1: Concierto AR</title>
-
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-
-    <style>
-      .a-enter-vr {
-        display: none;
-      }
-    </style>
-  </head>
-
-  <body>
-
-    <a-scene>
-        <a-box color="#444444"></a-box>
-    </a-scene>
-
-<a-scene background="color: #FAFAFA">
-    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-</a-scene>
-
-
-
-    <a-scene
-      mindar-image="imageTargetSrc: ./assets/targets.mind;"
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
-    >
-      <a-assets>
-        <a-asset-item
-          id="modeloConductor"
-          src="./assets/conductor_placeholder.glb"
-        ></a-asset-item>
-        <audio
-          id="sonidoOrquesta"
-          src="./assets/musica_intro.mp3"
-          preload="auto"
-        ></audio>
-      </a-assets>
-
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model
-          src="#modeloConductor"
-          position="0 0 0.1"
-          scale="0.5 0.5 0.5"
-          rotation="90 0 0"
-          shadow="cast: true; receive: true"
-        >
-          <a-animation
-            attribute="position"
-            to="0 0.15 0.1"
-            direction="alternate"
-            dur="3000"
-            repeat="indefinite"
-            easing="easeInOutSine"
-          ></a-animation>
-        </a-gltf-model>
-
-        <a-entity position="0 2 1" rotation="-45 0 0">
-          <a-light
-            type="spot"
-            color="#FFFCE8"
-            intensity="2"
-            angle="45"
-            penumbra="0.3"
-            castShadow="true"
-            target="a-gltf-model"
-          ></a-light>
-        </a-entity>
-
-        <a-light type="ambient" color="#444444" intensity="0.5"></a-light>
-        <a-sound
-          src="#sonidoOrquesta"
-          autoplay="true"
-          loop="true"
-          volume="1.5"
-          position="0 0 0"
-        ></a-sound>
-      </a-entity>
-    </a-scene>
-  </body>
+<html lang="en">
+<head>
+  <title>AR.js Test</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin:0; overflow:hidden;">
+  <a-scene embedded arjs>
+    <a-marker type="pattern" url="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/marker-training/examples/pattern-files/pattern-hiro.patt">
+      <a-box position="0 0.5 0" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="1 1.25 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
 </html>
