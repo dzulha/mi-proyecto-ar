@@ -7,14 +7,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>AR.js Test</title>
-  
+
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 
 <body style="margin:0; overflow:hidden;">
   <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-    
+
     <a-marker preset="hiro">
       <a-box position="0 0.5 0" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="1 1.25 0" radius="0.5" color="#EF2D5E"></a-sphere>
@@ -54,6 +54,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -63,19 +64,16 @@
 </head>
 
 <body style="margin:0; overflow:hidden;">
-  <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+  <a-scene embedded
+    arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
     <a-assets>
-      <a-asset-item id="mi-modelo" src="./Assets/Untitled.glb"></a-asset-item>
+      <a-asset-item id="mi-modelo" src="./Assets/abismoani.glb"></a-asset-item>
     </a-assets>
 
     <a-marker type='barcode' value='6'>
-      
-      <a-entity 
-        gltf-model="#mi-modelo" 
-        scale="0.5 0.5 0.5" 
-        position="0 0 0"
-        rotation="0 0 0">
+
+      <a-entity gltf-model="#mi-modelo" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0">
       </a-entity>
 
     </a-marker>
@@ -83,4 +81,5 @@
     <a-entity camera></a-entity>
   </a-scene>
 </body>
+
 </html>
